@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+
+spring:
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://47.106.85.109:3306/keshe?useUnicode=true&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: ddw
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
