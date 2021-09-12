@@ -11,3 +11,10 @@ spring:
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+rocketmq:
+  nameServer: 47.106.85.109:9876
+  producer:
+    group: ddw1

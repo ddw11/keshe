@@ -26,5 +26,6 @@ public class CarData {
     private int xUnknow;
     private int yUnknow;
     private int zUnknow;
+    private int circle;
 
 }

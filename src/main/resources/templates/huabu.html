@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #FFFFFF;
+            font-size: 1.4rem;
+        }
+
+        li{
+            list-style-type: none;/* 去掉li前的点 */
+            float: left;/*将li设置成做浮动，变为联动*/
+        }
+        a{
+            display: block;/*将a变成块状*/
+            width: 220px;/*设置块的宽度*/
+            height: 50px;/*设置块的长度*/
+            font-family: Microsoft Yahei;
+            line-height: 50px;/*设置字体在块中的高度*/
+            background-color: #2f4f4f;
+            margin: 0px 0px;/*块里的高宽通过margin设置*/
+            color: #fff;
+            text-align: center;/*字体居中*/
+            text-decoration: none;/*去掉下划线*/
+            font-size: 15px;
+        }
+        a:hover{
+            background-color: #2f6f4f;
+        }
+
+    </style>
+</head>
+
+
+
+<div >
+    <ul class=daohang>
+        <li><a th:href="@{/}">首页</a ></li>
+        <li><a th:href="@{/selectList}">所有数据</a ></li>
+        <li><a th:href="@{/deleteAll}">清空数据</a ></li>
+        <li><a th:href="@{/huabu}">运行轨迹</a ></li>
+        <li><a th:href="@{/PID}">调PID</a ></li>
+        <li><a th:href="@{/}">暂定</a ></li>
+    </ul>
+</div>
+</head>
+
+
+<style type="text/css">
+    canvas {
+        border: dashed 2px #CCC
+    }
+</style>
+<script type="text/javascript" th:inline="javascript">
+    setTimeout(function () {
+        location.reload()
+    }, 1000); //指定1秒刷新一次
+
+    function $$(id) {
+        return document.getElementById(id);
+    }
+
+    function pageLoad() {
+        var can = $$('can');
+        var cans = can.getContext('2d');
+        cans.moveTo(0, 0);//第一个起点
+
+        cans.lineTo(2,2);//第二个点
+        cans.lineTo(4,4);//第二个点
+
+        cans.lineTo(67,456);//第二个点
+
+        var jsonobject=[[${list}]];
+        var jsonArray=JSON.parse(jsonobject);
+
+        for(var i=0;i<jsonArray.length;i++){
+            cans.lineTo(jsonArray[i].x+i*5, jsonArray[i].y);//第二个点
+        }
+        cans.lineWidth = 3;
+        cans.strokeStyle = 'red';
+        cans.stroke();
+    }
+</script>
+<body onload="pageLoad();">
+<canvas id="can" width="4000px" height="1000px">4</canvas>
+</body>
+</html>

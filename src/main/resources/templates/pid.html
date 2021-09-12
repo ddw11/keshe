@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      font-size: 1.4rem;
+    }
+
+    li{
+      list-style-type: none;/* 去掉li前的点 */
+      float: left;/*将li设置成做浮动，变为联动*/
+    }
+    a{
+      display: block;/*将a变成块状*/
+      width: 220px;/*设置块的宽度*/
+      height: 50px;/*设置块的长度*/
+      font-family: Microsoft Yahei;
+      line-height: 50px;/*设置字体在块中的高度*/
+      background-color: #2f4f4f;
+      margin: 0px 0px;/*块里的高宽通过margin设置*/
+      color: #fff;
+      text-align: center;/*字体居中*/
+      text-decoration: none;/*去掉下划线*/
+      font-size: 15px;
+    }
+    a:hover{
+      background-color: #2f6f4f;
+    }
+
+  </style>
+</head>
+
+
+
+<div >
+  <ul class=daohang>
+    <li><a th:href="@{/}">首页</a ></li>
+    <li><a th:href="@{/selectList}">所有数据</a ></li>
+    <li><a th:href="@{/deleteAll}">清空数据</a ></li>
+    <li><a th:href="@{/huabu}">运行轨迹</a ></li>
+    <li><a th:href="@{/PID}">调PID</a ></li>
+    <li><a th:href="@{/}">暂定</a ></li>
+  </ul>
+</div>
+</head>
+<body>
+<h1>PID参数提交</h1>
+<!-- 表单提交用户信息,注意字段的设置,直接是*{} -->
+<form action="/pid" method="post">
+  P:<input type="text" name="p" /><br><br><br>
+  I: <input type="text" name="i" /> <br><br><br>
+  D:<input type="text" name="d" /> <br><br><br>
+  <input type="submit" value="出发">
+</form>
+</body>
+</html>
